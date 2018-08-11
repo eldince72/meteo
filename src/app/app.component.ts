@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'meteo';
+  title = 'Previsioni meteo';
+  imagePath = 'src/assets/image/meteo.png';
+  isNavbarCollapsed = true;
 }
