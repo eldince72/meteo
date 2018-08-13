@@ -5,12 +5,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { PrevisioniListComponent } from './previsioni-list/previsioni-list.component';
+import { SituazioneComponent } from './situazione/situazione.component';
+import { SituazioneDettaglioComponent } from './situazione-dettaglio/situazione-dettaglio.component';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'previsioni', component: PrevisioniListComponent },
+  { path: 'previsioni', component: SituazioneComponent },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -20,8 +21,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PrevisioniListComponent,
-    HomeComponent
+    SituazioneComponent,
+    HomeComponent,
+    SituazioneDettaglioComponent
   ],
   imports: [
     BrowserModule,
