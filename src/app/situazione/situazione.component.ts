@@ -8,7 +8,7 @@ import { MeteoService } from '../meteo.service';
   styleUrls: ['./situazione.component.css']
 })
 export class SituazioneComponent implements OnInit {
-  title = 'Previsioni meteo';
+  title = 'Situazione in tempo reale';
   
   situazione: Situazione;
 
@@ -19,7 +19,9 @@ export class SituazioneComponent implements OnInit {
   }
 
   getSituazione(): void {
-    this.situazione = this.meteoService.getSituazione();
+    //this.situazione = this.meteoService.getSituazione();
+    this.meteoService.getSituazioneApi()
+      .subscribe(situazione => this.situazione = situazione);
   }
 
 }

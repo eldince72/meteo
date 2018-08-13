@@ -1,14 +1,16 @@
-<div class="row" style="padding-top:20px">
-  <div class="col-md-12">
-    <h2>
-        {{ title }} a {{ situazione.name}}
-    </h2>
+<div *ngIf="situazione">
+  <div class="row" style="padding-top:20px">
+    <div class="col-md-12">
+      <h2>
+          {{ title }} a {{ situazione.name}}
+      </h2>
+    </div>
   </div>
-</div>
-  
-<div class="row">
-  <div class="col-md-3 "><strong>Situazione attuale</strong></div>
-  <div class="col-md-4">{{ situazione.weather[0].description}}</div>
-</div>
+    
+  <div class="row">
+    <div class="col-md-3 "><strong>Tempo</strong></div>
+    <div class="col-md-4">{{ situazione.weather[0].description}}</div>
+  </div>
 
-<app-situazione-dettaglio [tempo]="situazione.main"></app-situazione-dettaglio>
+  <app-situazione-dettaglio [tempo]="situazione.main"></app-situazione-dettaglio>
+</div>

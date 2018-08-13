@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Situazione } from './situazione';
+import { Observable, of } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MeteoService {
 
-  constructor() { }
-
+  constructor(private http: HttpClient) { }
+  
   getSituazione(): Situazione {
     return {
       "coord": {
@@ -51,5 +54,17 @@ export class MeteoService {
       "name": "Turin",
       "cod": 200
     };
+  }
+
+  getSituazioneApi() {
+    return this.http
+      .get<any>('http://api.openweathermap.org/data/2.5/weather?id=3165524&units=metric&lang=it&APPID=14f1f6bf554218ae3f1e790eda450874')      ;
+
+  }
+
+  getPrevisione() {
+    return this.http
+      .get<any>('http://api.openweathermap.org/data/2.5/forecast?id=3165524&lang=it&units=metric&APPID=14f1f6bf554218ae3f1e790eda450874')      ;
+
   }
 }

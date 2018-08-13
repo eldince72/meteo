@@ -1,0 +1,43 @@
+<div *ngIf="previsione !== null">
+  <div class="row" style="padding-top:20px">
+    <div class="col-md-12">
+      <h2>
+          {{ title }} a {{ previsione.city.name }}
+      </h2>
+    </div>
+    <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th></th>
+            <th scope="col">Data</th>
+            <th scope="col">Ora</th>
+            <th scope="col">Tempo</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of previsione.list; let i=index;">
+          <tr [attr.aria-expanded]="!item.isCollapsed" aria-controls="collapseExample">
+            <th scope="row">{{i+1}}</th>
+            <td>
+                <button type="button" class="btn btn-primary btn-sm" title="{{ !item.isCollapsed ? 'Apri dettaglio' : 'Chiudi dettaglio' }}"
+                        (click)="item.isCollapsed = !item.isCollapsed">
+                    <i class="fa fa-thermometer-half" aria-hidden="true"></i>
+                </button>
+            </td>
+            <td>{{ getData(item.dt_txt) }}</td>
+            <td>{{ getOra(item.dt_txt) }}</td>
+            <td>{{ item.weather[0].description }}</td>
+          </tr>
+          <tr>
+            <td class="nopadding" colspan="5">
+              <div id="collapseExample" [ngbCollapse]="!item.isCollapsed">
+                <div class="content">
+                  <app-previsioni-dettaglio [tempo]="item.main"></app-previsioni-dettaglio>   
+                </div> 
+              </div>
+            </td>
+          </tr>           
+        </tbody>
+      </table>
+  </div>
+</div> 

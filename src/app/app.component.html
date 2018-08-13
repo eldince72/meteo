@@ -7,8 +7,11 @@
   <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a routerLink="/previsioni" class="nav-link" href="#" (click)="isNavbarCollapsed = true">Previsioni <span class="sr-only"></span></a>
+        <a routerLink="/situazione" class="nav-link" href="#" (click)="isNavbarCollapsed = true">Situazione <span class="sr-only"></span></a>
       </li>
+      <li class="nav-item">
+          <a routerLink="/previsioni" class="nav-link" href="#" (click)="isNavbarCollapsed = true">Previsioni <span class="sr-only"></span></a>
+        </li>
     </ul>
   </div>
 </nav>

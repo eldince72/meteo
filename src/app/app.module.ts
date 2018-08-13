@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -7,11 +8,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SituazioneComponent } from './situazione/situazione.component';
 import { SituazioneDettaglioComponent } from './situazione-dettaglio/situazione-dettaglio.component';
+import { PrevisioniComponent } from './previsioni/previsioni.component';
+import { PrevisioniDettaglioComponent } from './previsioni-dettaglio/previsioni-dettaglio.component';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'previsioni', component: SituazioneComponent },
+  { path: 'situazione', component: SituazioneComponent },
+  { path: 'previsioni', component: PrevisioniComponent },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -21,12 +25,15 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SituazioneComponent,
     HomeComponent,
-    SituazioneDettaglioComponent
+    SituazioneComponent,
+    SituazioneDettaglioComponent,
+    PrevisioniComponent,
+    PrevisioniDettaglioComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
