@@ -1,0 +1,15 @@
+<img style="padding-right:4px;" alt="{{ tempo }}" [src]="imagePathCieloSereno"
+    *ngIf="tempo==='cielo sereno'"/>
+<img style="padding-right:4px;" alt="{{ tempo }}" [src]="imagePathPocheNuvole"
+    *ngIf="tempo==='poche nuvole'"/>
+<img style="padding-right:4px;" alt="{{ tempo }}" [src]="imagePathPioggiaLeggera"
+    *ngIf="tempo==='pioggia leggera'"/>
+<img style="padding-right:4px;" alt="{{ tempo }}" [src]="imagePathPioggiaModerata"
+    *ngIf="tempo==='pioggia moderata'"/>
+<img style="padding-right:4px;" alt="{{ tempo }}" [src]="imagePathNubiSparse"
+    *ngIf="tempo==='nubi sparse'"/>
+<img style="padding-right:4px;" alt="{{ tempo }}" [src]="imagePathCieloCoperto"
+    *ngIf="tempo==='cielo coperto'"/>
+<img style="padding-right:4px;" alt="{{ tempo }}" [src]="imagePathTemporale"
+    *ngIf="tempo==='temporale'"/>       
+{{ tempo }}

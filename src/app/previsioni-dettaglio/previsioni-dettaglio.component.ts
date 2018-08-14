@@ -8,6 +8,7 @@ import { Tempo } from '../tempo';
 })
 export class PrevisioniDettaglioComponent implements OnInit {
   @Input() tempo: Tempo;
+ 
   constructor() { }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Situazione } from '../situazione';
-import { MeteoService } from '../meteo.service';
+import { MeteoService } from '../_services/meteo.service';
 
 @Component({
   selector: 'app-previsioni',
