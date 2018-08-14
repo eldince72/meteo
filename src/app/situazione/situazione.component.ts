@@ -8,12 +8,7 @@ import { MeteoService } from '../_services/meteo.service';
   styleUrls: ['./situazione.component.css']
 })
 export class SituazioneComponent implements OnInit {
-  title = 'Situazione in tempo reale';
-  imagePathCieloSereno = 'src/assets/image/cielosereno.png';
-  imagePathPocheNuvole = 'src/assets/image/pochenuvole.png';
-  imagePathPioggiaLeggera = 'src/assets/image/pioggialeggera.png';
-  imagePathNubiSparse = 'src/assets/image/nubisparse.png';
-  
+  title = 'Situazione in tempo reale'; 
   situazione: Situazione;
 
   constructor(private meteoService: MeteoService) { }

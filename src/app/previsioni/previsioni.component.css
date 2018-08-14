@@ -5,3 +5,12 @@
 .content {
     padding: 20px;
 }
+
+.justify-content-center {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.margin-table {
+    margin-top:20px;   
+}
