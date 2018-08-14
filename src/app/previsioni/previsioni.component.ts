@@ -15,29 +15,40 @@ export class PrevisioniComponent implements OnInit {
   previsioni = [];
   error = '';
   currentPage: number = 1;
-  pageSize: number = 10;
+  pageSize: number = 8;
+
+  elencocitta = [
+    {
+      "id": 6541471,
+      "name": "Aosta"
+    },
+    {
+      "id": 3165525,
+      "name": "Torino"
+    }
+  ];
+  citta: number = this.elencocitta[0].id;
 
   constructor(private meteoService: MeteoService) { }
 
   ngOnInit() {
-    this.getPrevisione();
+    this.getPrevisione(this.citta);
   }
 
-  getPrevisione(): void { 
+  getPrevisione(citta: number): void { 
    /* this.meteoService.getPrevisione()
       .subscribe(previsione => this.previsione = previsione);*/
-      this.meteoService.getPrevisione()
-      .subscribe(
-        data => {
-          this.previsione = data;
-          this.previsioni = data.list;
-        },
-        error => {
-          this.error = 'Errore chiamata API';
-        }
-      );
+    this.meteoService.getPrevisione(citta)
+    .subscribe(
+      data => {
+        this.previsione = data;
+        this.previsioni = data.list;
+      },
+      error => {
+        this.error = 'Errore chiamata API';
+      }
+    );
   }
-
  
   get pagePrevisioni(){
     return this.previsioni.slice((this.currentPage-1)*this.pageSize,this.currentPage*this.pageSize);

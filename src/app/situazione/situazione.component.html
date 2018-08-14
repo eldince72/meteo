@@ -12,6 +12,7 @@
         <div class="col-md-4"><strong>Tempo</strong></div>
         <div class="col-md-4">
           <app-iconameteo [tempo]="situazione.weather[0].description"></app-iconameteo>
+          {{ situazione.weather[0].description }}
         </div>
       </div>
       <app-situazione-dettaglio [tempo]="situazione.main"></app-situazione-dettaglio>
