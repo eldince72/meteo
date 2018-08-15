@@ -16,22 +16,14 @@ export class PrevisioniComponent implements OnInit {
   error = '';
   currentPage: number = 1;
   pageSize: number = 8;
-
-  elencocitta = [
-    {
-      "id": 6541471,
-      "name": "Aosta"
-    },
-    {
-      "id": 3165525,
-      "name": "Torino"
-    }
-  ];
-  citta: number = this.elencocitta[0].id;
+  elencocitta = [];  
+  citta: number;
 
   constructor(private meteoService: MeteoService) { }
 
   ngOnInit() {
+    this.elencocitta = this.meteoService.getElencoCitta();
+    this.citta = this.elencocitta[93].id;
     this.getPrevisione(this.citta);
   }
 
