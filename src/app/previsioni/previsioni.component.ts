@@ -29,8 +29,9 @@ export class PrevisioniComponent implements OnInit {
 
   getPrevisione(citta: number): void { 
    /* this.meteoService.getPrevisione()
-      .subscribe(previsione => this.previsione = previsione);*/
-    this.meteoService.getPrevisione(citta)
+      .subscribe(previsione => this.previsione = previsione);*/    
+    this.citta = citta;
+    this.meteoService.getPrevisione(this.citta)
     .subscribe(
       data => {
         this.previsione = data;

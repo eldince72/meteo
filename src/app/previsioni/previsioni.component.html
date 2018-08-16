@@ -1,5 +1,5 @@
-<form  style="padding-top:40px;">
-  <div class="form-group row">
+<form style="padding-top:30px;">
+  <!--<div class="form-group row">
     <label for="citta" class="col-sm-2 col-form-label">Città</label>
     <div class="col-sm-4">
       <select class="form-control form-control-sm" id="citta" name="citta"
@@ -10,21 +10,23 @@
         </option>
       </select>
     </div>
-  </div>
+  </div>-->  
+  <app-select [items]="elencocitta" 
+              [name]="'citta'" 
+              [label]="'Città'" 
+              [selectedItem]="citta" 
+              (selectedItemChange)="getPrevisione($event)">
+  </app-select>
 </form>
 
 <div *ngIf="previsione !== null">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>
-        {{ title }} a {{ previsione.city.name }}
-      </h2>
+  <div class="card">
+    <div class="card-header text-white bg-dark">
+      <h3>{{title}} a {{previsione.city.name}}</h3>
     </div>
-  </div>
-  <div>
-    <table class="margin-table table table-striped table-sm">
-      <thead class="thead-dark">
-        <tr>
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr class="table-active">
           <th scope="col">#</th>
           <th></th>
           <th scope="col">Data</th>
@@ -34,19 +36,19 @@
       </thead>
       <tbody *ngFor="let item of pagePrevisioni; let i=index;">
         <tr [attr.aria-expanded]="!item.isCollapsed" aria-controls="collapseExample">
-          <th scope="row">{{ i + 1 + ((currentPage - 1) * pageSize) }}</th>
+          <th scope="row">{{i+1+((currentPage-1)*pageSize)}}</th>
           <td>
             <button style="padding-top:2px;padding-bottom:2px;" type="button" class="btn btn-primary btn-sm" title="{{ !item.isCollapsed ? 'Apri dettaglio' : 'Chiudi dettaglio' }}"
                     (click)="item.isCollapsed = !item.isCollapsed">
               <i class="fa fa-thermometer-half" aria-hidden="true"></i>
             </button>
           </td>
-          <td>{{ getData(item.dt_txt) }}</td>
-          <td>{{ getOra(item.dt_txt) }}</td>
+          <td>{{getData(item.dt_txt)}}</td>
+          <td>{{getOra(item.dt_txt)}}</td>
           <td style="width:20px;">
             <app-iconameteo [tempo]="item.weather[0].description"></app-iconameteo>
           </td>
-          <td class="d-none d-sm-block">{{ item.weather[0].description }}</td>
+          <td class="d-none d-sm-block">{{item.weather[0].description}}</td>
           <td class="d-block d-sm-none"></td>
         </tr>
         <tr>

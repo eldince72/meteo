@@ -12,6 +12,7 @@ import { SituazioneDettaglioComponent } from './situazione-dettaglio/situazione-
 import { PrevisioniComponent } from './previsioni/previsioni.component';
 import { PrevisioniDettaglioComponent } from './previsioni-dettaglio/previsioni-dettaglio.component';
 import { IconameteoComponent } from './iconameteo/iconameteo.component';
+import { SelectComponent } from './select/select.component';
 
 
 const appRoutes: Routes = [
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     SituazioneDettaglioComponent,
     PrevisioniComponent,
     PrevisioniDettaglioComponent,
-    IconameteoComponent
+    IconameteoComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,22 @@
+<form style="padding-top:30px;">
+  <app-select [items]="elencocitta" 
+              [name]="'citta'" 
+              [label]="'Città'" 
+              [selectedItem]="citta" 
+              (selectedItemChange)="getSituazione($event)">
+  </app-select>
+</form>
 <div *ngIf="situazione">
-  <div class="row" style="padding-top:20px">
-    <div class="col-md-12">
-      <h2>
-          {{ title }} a {{ situazione.name}}
-      </h2>
+  <div class="card">
+    <div class="card-header text-white bg-dark">
+      <h3>{{title}} a {{situazione.name}}</h3>
     </div>
-  </div>
-   <div class="card"> 
     <div class="card-body">
       <div class="row">
         <div class="col-md-4"><strong>Tempo</strong></div>
         <div class="col-md-4">
           <app-iconameteo [tempo]="situazione.weather[0].description"></app-iconameteo>
-          {{ situazione.weather[0].description }}
+          {{situazione.weather[0].description}}
         </div>
       </div>
       <app-situazione-dettaglio [tempo]="situazione.main"></app-situazione-dettaglio>

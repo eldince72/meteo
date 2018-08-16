@@ -56,9 +56,9 @@ export class MeteoService {
     };
   }
 
-  getSituazioneApi() {
+  getSituazioneApi(idCitta: number) {
     return this.http
-      .get<any>('http://api.openweathermap.org/data/2.5/weather?id=3165524&units=metric&lang=it&APPID=14f1f6bf554218ae3f1e790eda450874');
+      .get<any>('http://api.openweathermap.org/data/2.5/weather?id='+ idCitta + '&lang=it&units=metric&APPID=14f1f6bf554218ae3f1e790eda450874');
 
   }
 
