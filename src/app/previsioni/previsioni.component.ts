@@ -27,6 +27,10 @@ export class PrevisioniComponent implements OnInit {
     this.getPrevisione(this.citta);
   }
 
+  /**
+   * 
+   * @param citta 
+   */
   getPrevisione(citta: number): void { 
    /* this.meteoService.getPrevisione()
       .subscribe(previsione => this.previsione = previsione);*/    
@@ -47,10 +51,18 @@ export class PrevisioniComponent implements OnInit {
     return this.previsioni.slice((this.currentPage-1)*this.pageSize,this.currentPage*this.pageSize);
   }
 
+  /**
+   * 
+   * @param str 
+   */
   getData(str: string) {
     return str.substr(8,2) + "/" + str.substr(5,2) + "/" + str.substr(0,4);
   }
 
+  /**
+   * 
+   * @param str 
+   */
   getOra(str: string) {
     return str.substr(11,5);
   }

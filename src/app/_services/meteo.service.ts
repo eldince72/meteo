@@ -56,12 +56,20 @@ export class MeteoService {
     };
   }
 
+  /**
+   * 
+   * @param idCitta 
+   */
   getSituazioneApi(idCitta: number) {
     return this.http
       .get<any>('http://api.openweathermap.org/data/2.5/weather?id='+ idCitta + '&lang=it&units=metric&APPID=14f1f6bf554218ae3f1e790eda450874');
 
   }
 
+  /**
+   * 
+   * @param idCitta 
+   */
   getPrevisione(idCitta: number) {
     return this.http
       .get<any>('http://api.openweathermap.org/data/2.5/forecast?id='+ idCitta + '&lang=it&units=metric&APPID=14f1f6bf554218ae3f1e790eda450874');

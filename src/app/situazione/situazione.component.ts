@@ -21,6 +21,10 @@ export class SituazioneComponent implements OnInit {
     this.getSituazione(this.citta);
   }
 
+  /**
+   * 
+   * @param citta 
+   */
   getSituazione(citta: number): void {
     //this.situazione = this.meteoService.getSituazione();
     this.citta = citta;
