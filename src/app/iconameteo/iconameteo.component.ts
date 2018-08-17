@@ -1,13 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-iconameteo',
   templateUrl: './iconameteo.component.html',
   styleUrls: ['./iconameteo.component.css']
 })
-export class IconameteoComponent implements OnInit {
+export class IconameteoComponent implements OnChanges, OnInit {
   @Input() tempo: string;
-
+  /*imagePathCieloSereno = 'src/assets/image/cielosereno.png';
+  imagePathPocheNuvole = 'src/assets/image/pochenuvole.png';
+  imagePathPioggiaLeggera = 'src/assets/image/pioggialeggera.png';
+  imagePathPioggiaModerata = 'src/assets/image/pioggiamoderata.png';
+  imagePathNubiSparse = 'src/assets/image/nubisparse.png';
+  imagePathCieloCoperto = 'src/assets/image/cielocoperto.png';
+  imagePathTemporale = 'src/assets/image/temporale.png';*/
   pathIcons = [
     {
       "desc": 'cielo sereno',
@@ -43,6 +49,10 @@ export class IconameteoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.pathIcon = this.pathIcons.find(e=>e.desc === this.tempo).path;
+  }
+
+  ngOnChanges() {
     this.pathIcon = this.pathIcons.find(e=>e.desc === this.tempo).path;
   }
 
