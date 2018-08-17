@@ -42,6 +42,10 @@ export class IconameteoComponent implements OnChanges, OnInit {
     {
       "desc": 'temporale',
       "path": "src/assets/image/temporale.png"
+    },
+    {
+      "desc": 'nebbia',
+      "path": "src/assets/image/nebbia.png"
     }    
   ];
   pathIcon: string;
@@ -49,11 +53,22 @@ export class IconameteoComponent implements OnChanges, OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.pathIcon = this.pathIcons.find(e=>e.desc === this.tempo).path;
+    this.getPathIcon();
   }
 
   ngOnChanges() {
-    this.pathIcon = this.pathIcons.find(e=>e.desc === this.tempo).path;
+    this.getPathIcon();
+  }
+
+  getPathIcon() {
+    //this.pathIcon = this.pathIcons.find(e=>e.desc === this.tempo).path;
+    let index: number = this.pathIcons.findIndex(e=>e.desc === this.tempo);
+    if (index !== -1) {
+        this.pathIcon = this.pathIcons[index].path;
+    }
+    else {
+        this.pathIcon = 'src/assets/image/not-available.png';
+    }
   }
 
 }
