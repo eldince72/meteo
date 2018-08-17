@@ -46,7 +46,15 @@ export class IconameteoComponent implements OnChanges, OnInit {
     {
       "desc": 'nebbia',
       "path": "src/assets/image/nebbia.png"
-    }    
+    },
+    {
+      "desc": 'acquazzone',
+      "path": "src/assets/image/acquazzone.png"
+    },
+    {
+      "desc": 'foschia',
+      "path": "src/assets/image/nebbia.png"
+    }     
   ];
   pathIcon: string;
 
